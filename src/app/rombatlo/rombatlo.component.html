@@ -1,0 +1,12 @@
+<section class="card"><p class="eyebrow">0311 / Rombatlo</p><h2>Rombusz számoló</h2>
+<p>Add meg a két átló hosszát azonos mértékegységben. Pozitív törtérték is megadható.</p>
+<form [formGroup]="rombatloForm" (ngSubmit)="startCalc()" novalidate>
+<label for="e">Első átló (e)</label><input id="e" type="number" formControlName="e" step="any" required aria-describedby="e-error" [attr.aria-invalid]="rombatloForm.controls.e.touched && rombatloForm.controls.e.invalid">
+@if (rombatloForm.controls.e.touched && rombatloForm.controls.e.invalid) {<p class="error" id="e-error">Adj meg nullánál nagyobb számot.</p>}
+<label for="f">Második átló (f)</label><input id="f" type="number" formControlName="f" step="any" required aria-describedby="f-error" [attr.aria-invalid]="rombatloForm.controls.f.touched && rombatloForm.controls.f.invalid">
+@if (rombatloForm.controls.f.touched && rombatloForm.controls.f.invalid) {<p class="error" id="f-error">Adj meg nullánál nagyobb számot.</p>}
+<div class="actions"><button type="submit">Számítás</button><button type="button" class="secondary" (click)="clear()">Törlés</button></div></form>
+<div aria-live="polite" aria-atomic="true">
+@if (error) {<p class="error" role="alert">{{error}}</p>}
+@if (area !== null) {<div class="result"><p>A rombusz területe</p><output>{{area | number:'1.0-10'}} egység²</output><p>T = e × f / 2</p></div>}
+</div></section>
