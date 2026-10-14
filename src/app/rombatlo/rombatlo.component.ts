@@ -1,32 +1,37 @@
 /*
- * A program rombusz területének meghatározására használható két átlóból.
- * Feladat: 0311. Mentés: rombatlo.
- * Készítő: Szabó József. Osztály: SZOFT-II/N. Dátum: 2026-10-14.
+ * Rombusz területének kiszámítása két átlóból.
+ * Szabó József, SZOFT-II/N
+ * 2026-10-14
  */
-import { Component, inject, DestroyRef } from '@angular/core';
-import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { DecimalPipe } from '@angular/common';
+import { Component, inject } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
-import { calcArea } from './rombatlo.math';
-@Component({selector:'app-rombatlo',imports:[ReactiveFormsModule,DecimalPipe],templateUrl:'./rombatlo.component.html'})
+
+@Component({
+  selector: 'app-rombatlo',
+  imports: [ReactiveFormsModule],
+  templateUrl: './rombatlo.component.html'
+})
 export class RombatloComponent {
-  private readonly builder = inject(FormBuilder);
-  readonly rombatloForm = this.builder.group({
+  builder = inject(FormBuilder);
+  rombatloForm = this.builder.group({
     e: [null as number | null, [Validators.required, Validators.min(Number.MIN_VALUE)]],
-    f: [null as number | null, [Validators.required, Validators.min(Number.MIN_VALUE)]]
+    f: [null as number | null, [Validators.required, Validators.min(Number.MIN_VALUE)]],
+    area: ['']
   });
-  area: number | null = null;
-  error = '';
-  constructor() {
-    this.rombatloForm.valueChanges.pipe(takeUntilDestroyed()).subscribe(() => {this.area=null; this.error='';});
-  }
-  startCalc(): void {
-    this.area=null; this.error='';
+  showArea = false;
+
+  startCalc() {
+    this.showArea = false;
     this.rombatloForm.markAllAsTouched();
     if (this.rombatloForm.invalid) return;
-    const {e,f}=this.rombatloForm.getRawValue();
-    try {this.area=calcArea(e!,f!);}
-    catch {this.error='A megadott értékekkel nem számítható ábrázolható terület. Adj meg más pozitív számokat.';}
+    const e = Number(this.rombatloForm.value.e);
+    const f = Number(this.rombatloForm.value.f);
+    const area = this.calcArea(e, f);
+    this.rombatloForm.get('area')?.setValue(String(area));
+    this.showArea = true;
   }
-  clear(): void {this.rombatloForm.reset(); this.area=null; this.error='';}
+
+  calcArea(e: number, f: number): number {
+    return e * f / 2;
+  }
 }

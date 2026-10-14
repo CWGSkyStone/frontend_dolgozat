@@ -1,1 +1,11 @@
-:root{font-family:system-ui,-apple-system,"Segoe UI",sans-serif;color:#182d3b;background:#eef3f5;font-synthesis:none}*{box-sizing:border-box}body{margin:0}header,nav,main,footer{max-width:880px;margin:auto;padding:24px}header{padding-top:48px;padding-bottom:12px}h1{font-size:clamp(1.5rem,4vw,2rem);margin:0 0 10px}h2{font-size:1.8rem;margin:8px 0 18px}p{line-height:1.65}header p,footer{color:#526572}nav{display:flex;gap:8px;flex-wrap:wrap;padding-top:10px;padding-bottom:10px}nav a{padding:10px 14px;text-decoration:none;border-radius:8px;color:#254b5e}nav a.active{background:#163f50;color:white}.card{background:white;border:1px solid #d4e0e5;border-radius:18px;padding:clamp(22px,5vw,42px);box-shadow:0 12px 36px #163f5008}.eyebrow{font-size:.8rem;text-transform:uppercase;letter-spacing:.12em;color:#466879;font-weight:700}.formula{font-size:2rem;padding:20px;background:#edf6f3;border-radius:10px;color:#136451}a{color:#126c59}label{display:block;margin:22px 0 8px;font-weight:600}input{width:100%;padding:13px;border:1px solid #91a8b4;border-radius:8px;font:inherit}.actions{display:flex;gap:12px;margin-top:26px}button,.button{display:inline-block;background:#136451;color:white;border:1px solid #136451;border-radius:8px;padding:12px 22px;font:inherit;font-weight:600;text-decoration:none;cursor:pointer}.secondary{background:white;color:#264959;border-color:#9ab0ba}button:hover,.button:hover{filter:brightness(.92)}:focus-visible{outline:3px solid #db8c2d;outline-offset:3px}.error{color:#ae2828;margin:8px 0}.result{margin-top:28px;background:#edf6f3;border-left:4px solid #136451;border-radius:8px;padding:20px}.result p{margin:0}.result output{display:block;font-size:1.7rem;font-weight:700;margin:8px 0;overflow-wrap:anywhere}dl{display:grid;grid-template-columns:1fr 2fr;gap:14px}dt{font-weight:600}dd{margin:0}footer{font-size:.85rem}@media(max-width:480px){header,nav,main,footer{padding-left:16px;padding-right:16px}dl{grid-template-columns:1fr;gap:6px}dd{margin-bottom:10px}}
+body {
+  font-family: Arial, sans-serif;
+  max-width: 800px;
+  margin: 30px auto;
+  padding: 0 15px;
+}
+nav a { margin-right: 20px; }
+label { display: block; margin-top: 15px; }
+input { padding: 8px; width: 100%; box-sizing: border-box; }
+button { margin-top: 15px; padding: 8px 15px; }
+.error { color: red; }
