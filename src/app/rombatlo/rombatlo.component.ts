@@ -1,8 +1,14 @@
 /*
- * Rombusz területének kiszámítása két átlóból.
- * Szabó József, SZOFT-II/N
- * 2026-10-14
- */
+* File: rombatlo.component.ts
+* Author: Szabó József
+* Copyright: 2026, Szabó József
+* Group: SZOFT-II/N
+* Date: 2026-10-14
+* Github: https://github.com/CWGSkyStone/frontend_dolgozat
+* Licenc: MIT
+* Rombusz területének kiszámítása két átlóból. Feladat 0311.
+*/
+
 import { Component, inject } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 

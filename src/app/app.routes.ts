@@ -1,3 +1,13 @@
+/*
+* File: app.routes.ts
+* Author: Szabó József
+* Copyright: 2026, Szabó József
+* Group: SZOFT-II/N
+* Date: 2026-10-14
+* Github: https://github.com/CWGSkyStone/frontend_dolgozat
+* Licenc: MIT
+*/
+
 import { Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
